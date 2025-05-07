@@ -12,7 +12,8 @@ categories = ['Normal', 'Glaucoma', 'Cataract', 'Diabetic Retinopathy']
 IMG_SIZE = 128
 
 # Load model
-model = tf.keras.models.load_model("eye_disease_model.h5")
+model_path = "eye_disease_model.h5"
+model = tf.keras.models.load_model(model_path,compile=False)
 
 def preprocess_image(image_path):
     image = Image.open(image_path).convert('RGB')
@@ -45,5 +46,5 @@ def index():
     return render_template('index.html', prediction=None, image_url=None)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
