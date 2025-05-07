@@ -12,8 +12,7 @@ categories = ['Normal', 'Glaucoma', 'Cataract', 'Diabetic Retinopathy']
 IMG_SIZE = 128
 
 # Load model
-model_path = r"C:\Users\venka\PycharmProjects\EYE DIASEASE PREDICTION\eye_disease_model.h5"  # Change to your model path
-model = tf.keras.models.load_model(model_path)
+model = tf.keras.models.load_model("eye_disease_model.h5")
 
 def preprocess_image(image_path):
     image = Image.open(image_path).convert('RGB')
